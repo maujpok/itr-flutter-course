@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itr_course_app/ui/features/auth/views/login_screen.dart';
 import 'package:itr_course_app/ui/home_screen.dart';
 
 class App extends StatelessWidget {
@@ -28,7 +29,7 @@ class App extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const LoginScreen(),
     );
   }
 }
