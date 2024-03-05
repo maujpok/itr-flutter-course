@@ -1,0 +1,11 @@
+flutter create app_name -- CREATE A NEW FLUTTER APP
+flutter doctor          -- CHECK LOCAL ENVIRONMENT
+flutter pub get         -- INSTALL DEPENDENCIES -- pubspec.yaml
+flutter clean           -- DELETE BUILD
+dart pub upgrade        -- UPDATE ALL DEPENDENCIES -- http: 1.1.2 -- http 1.2.0
+flutter upgrade         -- UPGRADE SDK
+flutter --version       -- FLUTTER VERSION
+dart fix --dry-run      -- DETECT WARNINGS
+dart fix --apply        -- AUTOMATIC FIX
+flutter run             -- LAUNCH APP
+flutter build           -- BUILD APP
