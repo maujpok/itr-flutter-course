@@ -1,0 +1,7 @@
+--lib
+    -- app
+    -- data
+    -- device
+    -- domain
+    -- infraestructure
+    -- ui

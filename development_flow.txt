@@ -1,0 +1,10 @@
+INITIAL CONFIGURATION
+1- app theme / text styles / sizes (UI config)
+2- add basic libraries: internet, state management, intl, permission_handler, shared_preferences, go_router
+3- api helper
+
+
+ONGOING FLOW
+1- layout development
+2- add services
+3- state management implementation
