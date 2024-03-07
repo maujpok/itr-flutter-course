@@ -12,26 +12,50 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page'),
+        title: const Text('Iniciar sesión'),
       ),
       body: Column(
         children: [
-          Image.network('https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png'),
-          TextFormField(
-            decoration: const InputDecoration(hintText: 'Email'),
+          SizedBox(
+              width: 200,
+              height: 200,
+              child: Image.network(
+                'https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png',
+              )
+              ),
+          Column(
+            children: [
+              Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: TextFormField(
+                    decoration: const InputDecoration(hintText: 'Usuario'),
+                  )),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: TextFormField(
+                  decoration: const InputDecoration(hintText: 'Contraseña'),
+                ),
+              )
+            ],
           ),
-          TextFormField(
-            decoration: const InputDecoration(hintText: 'Password'),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Forgot Password'),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Login'),
-          ),
-          const Text('New User? Create Account')
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Ingresar'),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text('Olvidé mi contraseña'),
+                ),
+                TextButton(onPressed: () {}, child: const Text('Registarse'))
+              ],
+            ),
+          )
         ],
       ),
     );
