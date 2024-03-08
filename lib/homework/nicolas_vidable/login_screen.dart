@@ -22,19 +22,21 @@ class _LoginScreenState extends State<LoginScreen> {
            style: TextStyle(color: Colors.white),
           ),
       ),
-      body: Column(
-        children: [
-          Expanded(child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+      body: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+          hasScrollBody: false,
+          child: Column(
             children: [
+              Expanded(child: Container()),
               Container(
-                margin: const EdgeInsets.all(60),
-                //padding: const EdgeInsets.all(60), 
+                height: 150,
+                margin: const EdgeInsets.only(left: 25, right: 25, bottom: 40),
                 child: Image.network('https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png'),
               ),
               Container(
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.only(bottom: 20),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: TextFormField(
                   decoration: const InputDecoration(
                     hintText: 'Email',
@@ -50,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: TextFormField(
                   decoration: const InputDecoration(
                     hintText: 'Password',
@@ -93,10 +95,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: const Text('Login', style: TextStyle(color: Colors.white, fontSize: 20.0),),
                 ),
               ),
+              Expanded(child: Container()),
+              Container(
+                margin: const EdgeInsets.only(top: 10, bottom: 10),
+                child: const Text(
+                  'New User? Create Account', 
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
             ],
           ),
-         ),
-        const Text('New User? Create Account', style: TextStyle(color: Colors.black),),
+        ),
         ],
       ), 
     );
