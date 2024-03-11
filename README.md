@@ -1,6 +1,7 @@
 # itr_course_app
 
 A new Flutter project.
+After Download, remember execute flutter pub get, into the console.
 
 ## Getting Started
 
