@@ -36,24 +36,32 @@ class _LoginScreenState extends State<LoginScreen> {
             )
           ),
           const SizedBox( height: 30, ),
-          Column(
-            children:[
-              TextFormField(
-                decoration: const InputDecoration(hintText: 'Email'),
-              ),
-              TextFormField(
-                decoration: const InputDecoration(hintText: 'Password'),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: const Text('Forgot Password'),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Login'),
-              ),
-              const Text('New User? Create Account')
-            ]
+          Padding(
+            padding: const EdgeInsets.only(right:10.0,left:10),
+            child: Column(
+              children:[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(width: 1)),
+                    hintText: 'Email'),
+                ),
+                const SizedBox( height: 10, ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(width: 1)),
+                    hintText: 'Password'),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text('Forgot Password'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Login'),
+                ),
+                const Text('New User? Create Account')
+              ]
+            ),
           )
         ],
       ),
