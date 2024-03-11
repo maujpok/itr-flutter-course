@@ -16,8 +16,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         backgroundColor: Colors.lightBlue,
         //statusBarColor:  Color.fromARGB(255, 14, 53, 100),
       ),
-
-      body: const Text("Bienvenido")
-    );
+      body: const Text("Bienvenido"));
   }
 }

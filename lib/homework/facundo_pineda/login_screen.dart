@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:itr_course_app/homework/facundo_pineda/building_screen.dart';
 import 'package:itr_course_app/homework/facundo_pineda/welcome_screen.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -23,17 +22,18 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Colors.white,
           height: 70,
           child: Center(
-            child:               TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const BuildingScreen()),
-                  );
-                },
-                child: const Text('New User? Create Account',
-                    style: TextStyle(color: Colors.lightBlue, fontSize: 20)),
-              ),)),
+            child: TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BuildingScreen()),
+                );
+              },
+              child: const Text('New User? Create Account',
+                  style: TextStyle(color: Colors.lightBlue, fontSize: 20)),
+            ),
+          )),
       body: Column(
         children: [
           const SizedBox(
