@@ -16,9 +16,10 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: Column(
         children: [
-          Image.network('https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png'),
+          Image.network(
+              'https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png'),
           TextFormField(
-            decoration: const InputDecoration(hintText: 'Email'),
+            decoration: const InputDecoration(hintText: 'Correo'),
           ),
           TextFormField(
             decoration: const InputDecoration(hintText: 'Password'),

@@ -19,7 +19,8 @@ class Home extends StatelessWidget {
           children: [
             ListView.separated(
                 physics: const NeverScrollableScrollPhysics(),
-                separatorBuilder: (context, index) => const SizedBox(height: 30),
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 30),
                 itemCount: students.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) => Container(
@@ -118,6 +119,7 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      // ignore: avoid_print
       onPressed: () => print('Hola Mundo!'),
       child: Text(buttonTitle),
     );
