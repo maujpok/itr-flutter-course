@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:itr_course_app/ui/home_screen.dart';
 
 class App extends StatelessWidget {
