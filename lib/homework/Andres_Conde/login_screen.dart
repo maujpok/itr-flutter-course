@@ -11,6 +11,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text(
           'Login Page',
@@ -55,11 +56,19 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Expanded(
               flex: 1,
-              child: TextButton(
-                onPressed: () {},
-                style: const ButtonStyle(alignment: Alignment.bottomCenter),
-                child: const Text('New User? Create Account',
-                    style: TextStyle(color: Colors.blue)),
+              child: Container(
+                alignment: Alignment.bottomCenter,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('New User?', textAlign: TextAlign.end),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('Create Account',
+                          style: TextStyle(color: Colors.blue)),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
