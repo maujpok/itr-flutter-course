@@ -16,22 +16,20 @@ class HomeScreen extends StatelessWidget {
           title: const Text('ITR Flutter'),
           backgroundColor: Colors.blueAccent,
         ),
-        body: ListView.builder(
+        body: ListView.separated(
+          separatorBuilder: (context, index) => const SizedBox(height: 20),
           itemCount: items.length,
           shrinkWrap: true,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.only(bottom: 40),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => items[index].loginWidget,
-                  ),
-                );
-              },
-              child: Text(items[index].name),
-            ),
+          itemBuilder: (context, index) => ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => items[index].loginWidget,
+                ),
+              );
+            },
+            child: Text(items[index].name),
           ),
         ));
   }
