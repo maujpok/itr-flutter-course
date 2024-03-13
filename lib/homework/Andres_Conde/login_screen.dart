@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreenAndres extends StatefulWidget {
+  const LoginScreenAndres({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreenAndres> createState() => _LoginScreenAndresState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenAndresState extends State<LoginScreenAndres> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,24 +34,19 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             TextFormField(
               key: UniqueKey(),
-              decoration: const InputDecoration(
-                  hintText: 'Email', border: OutlineInputBorder()),
+              decoration: const InputDecoration(hintText: 'Email', border: OutlineInputBorder()),
             ),
             const SizedBox(height: 5),
             TextFormField(
-              decoration: const InputDecoration(
-                  hintText: 'Password', border: OutlineInputBorder()),
+              decoration: const InputDecoration(hintText: 'Password', border: OutlineInputBorder()),
             ),
             TextButton(
               onPressed: () {},
-              child: const Text('Forgot Password',
-                  style: TextStyle(color: Colors.blue)),
+              child: const Text('Forgot Password', style: TextStyle(color: Colors.blue)),
             ),
             ElevatedButton(
               onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  minimumSize: const Size(200, 40)),
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue, minimumSize: const Size(200, 40)),
               child: const Text('Login', style: TextStyle(color: Colors.white)),
             ),
             Expanded(
@@ -64,8 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const Text('New User?', textAlign: TextAlign.end),
                     TextButton(
                       onPressed: () {},
-                      child: const Text('Create Account',
-                          style: TextStyle(color: Colors.blue)),
+                      child: const Text('Create Account', style: TextStyle(color: Colors.blue)),
                     ),
                   ],
                 ),

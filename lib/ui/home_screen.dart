@@ -1,125 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:itr_course_app/homework/Andres_Conde/login_screen.dart';
+import 'package:itr_course_app/homework/facundo_pineda/login_screen.dart';
+import 'package:itr_course_app/homework/fazzari_branimir/login_screen.dart';
+import 'package:itr_course_app/homework/fernando_villegas/login_screen.dart';
+import 'package:itr_course_app/homework/luis_carrillo/login_screen.dart';
+import 'package:itr_course_app/homework/nicolas_vidable/login_screen.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ITR - Flutter'),
-        centerTitle: true,
-        backgroundColor: Colors.amber,
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        physics: const AlwaysScrollableScrollPhysics(),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                separatorBuilder: (context, index) => const SizedBox(height: 30),
-                itemCount: students.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) => Container(
-                      color: Colors.red,
-                      width: double.infinity,
-                      height: 500,
-                      child: Text(
-                        students[index]['name'].toString(),
-                      ),
-                    )
-
-                // ListView(
-                //   padding: EdgeInsets.symmetric(
-                //     vertical: 20,
-                //     horizontal: 10,
-                //   ),
-                //   children: [
-                //     ...students
-                //         .map(
-                //           (e) => Container(
-                //             margin: EdgeInsets.only(bottom: 20),
-                //             color: Colors.red,
-                //             width: double.infinity,
-                //             height: 50,
-                //             child: Text(
-                //               e['name'].toString(),
-                //             ),
-                //           ),
-                //         )
-                //         .toList(),
-                //     Container(
-                //       color: Colors.green,
-                //       width: 100,
-                //       height: 100,
-                //     )
-                //   ],
-                // )
-                // -----------
-                // SingleChildScrollView(
-                //   child: Column(
-                //     children: [
-                //       Container(
-                //         color: Colors.blueAccent,
-                //         width: double.infinity,
-                //         height: 500,
-                //       ),
-                //       const SizedBox(
-                //         height: 10,
-                //       ),
-                //       Container(
-                //         color: Colors.blueAccent,
-                //         width: double.infinity,
-                //         height: 500,
-                //       ),
-                //     ],
-                //   ),
-                ),
-            Container(
-              color: Colors.green,
-              width: 100,
-              height: 100,
-            )
-          ],
+        appBar: AppBar(
+          title: const Text('ITR Flutter'),
+          backgroundColor: Colors.blueAccent,
         ),
-      ),
-    );
+        body: ListView.builder(
+          itemCount: items.length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.only(bottom: 40),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => items[index].loginWidget,
+                  ),
+                );
+              },
+              child: Text(items[index].name),
+            ),
+          ),
+        ));
   }
 }
 
-const students = [
-  {
-    'name': 'jose',
-    'age': 18,
-    'status': true,
-  },
-  {
-    'name': 'juana',
-    'age': 22,
-    'status': false,
-  },
-  {
-    'name': 'martin',
-    'age': 55,
-    'status': true,
-  },
+final items = <StudentLogins>[
+  StudentLogins(name: 'Luis', loginWidget: const LoginScreenLuis()),
+  StudentLogins(name: 'Andres', loginWidget: const LoginScreenAndres()),
+  StudentLogins(name: 'Branimir', loginWidget: const LoginScreenBranimir()),
+  StudentLogins(name: 'Facundo', loginWidget: const LoginScreenFacu()),
+  StudentLogins(name: 'Fernando', loginWidget: const LoginScreenFernando()),
+  StudentLogins(name: 'Nico', loginWidget: const LoginScreenNico()),
 ];
 
-class AppButton extends StatelessWidget {
-  const AppButton({
-    super.key,
-    required this.buttonTitle,
-  });
+class StudentLogins {
+  final String name;
+  final Widget loginWidget;
 
-  final String buttonTitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () => print('Hola Mundo!'),
-      child: Text(buttonTitle),
-    );
-  }
+  StudentLogins({required this.name, required this.loginWidget});
 }

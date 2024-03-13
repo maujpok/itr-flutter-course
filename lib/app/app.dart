@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itr_course_app/homework/luis_carrillo/login_screen.dart';
+import 'package:itr_course_app/ui/home_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFFFFFF)),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: const HomeScreen(),
     );
   }
 }

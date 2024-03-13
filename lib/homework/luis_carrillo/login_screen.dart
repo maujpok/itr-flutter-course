@@ -7,14 +7,14 @@ import 'widget/logo_image.dart';
 import 'widget/password_input.dart';
 import 'widget/bottom_bar.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreenLuis extends StatefulWidget {
+  const LoginScreenLuis({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreenLuis> createState() => _LoginScreenLuisState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenLuisState extends State<LoginScreenLuis> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

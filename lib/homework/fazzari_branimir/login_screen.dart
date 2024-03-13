@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreenBranimir extends StatefulWidget {
+  const LoginScreenBranimir({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreenBranimir> createState() => _LoginScreenBranimirState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenBranimirState extends State<LoginScreenBranimir> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.purple, 
-          statusBarBrightness: Brightness.dark
-          ),
+        systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: Colors.purple, statusBarBrightness: Brightness.dark),
         title: const Text('Iniciar sesión'),
       ),
       body: Column(
@@ -26,19 +23,16 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 200,
               child: Image.network(
                 'https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png',
-              )
-              ),
+              )),
           Column(
             children: [
               Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: TextFormField(
                     decoration: const InputDecoration(hintText: 'Usuario'),
                   )),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: TextFormField(
                   decoration: const InputDecoration(hintText: 'Contraseña'),
                 ),
