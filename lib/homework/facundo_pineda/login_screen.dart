@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itr_course_app/homework/facundo_pineda/building_screen.dart';
 import 'package:itr_course_app/homework/facundo_pineda/welcome_screen.dart';
+import 'package:itr_course_app/homework/facundo_pineda/user_class.dart';
 
 class LoginScreenFacu extends StatefulWidget {
   const LoginScreenFacu({super.key});
@@ -10,8 +11,13 @@ class LoginScreenFacu extends StatefulWidget {
 }
 
 class _LoginScreenFacuState extends State<LoginScreenFacu> {
+  
+  // this allows us to access the TextField text
+  TextEditingController textFieldController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final UserFacu user=UserFacu(name: "facu", password: "123");
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login Page by Facu Pineda'),
@@ -26,10 +32,12 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const BuildingScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const BuildingScreen()),
                 );
               },
-              child: const Text('New User? Create Account', style: TextStyle(color: Colors.lightBlue, fontSize: 20)),
+              child: const Text('New User? Create Account',
+                  style: TextStyle(color: Colors.lightBlue, fontSize: 20)),
             ),
           )),
       body: Column(
@@ -43,7 +51,10 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
             children: [
               SizedBox(
                 width: 250, // set this
-                child: Column(children: [Image.network('https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png')]),
+                child: Column(children: [
+                  Image.network(
+                      'https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png')
+                ]),
               ),
             ],
           )),
@@ -54,38 +65,48 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
             padding: const EdgeInsets.only(right: 10.0, left: 10),
             child: Column(children: [
               TextFormField(
-                decoration: const InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 1)), hintText: 'Email'),
+                decoration: const InputDecoration(
+                    border:
+                        OutlineInputBorder(borderSide: BorderSide(width: 1)),
+                    hintText: 'Email'),
               ),
               const SizedBox(
                 height: 10,
               ),
               TextFormField(
-                decoration: const InputDecoration(border: OutlineInputBorder(borderSide: BorderSide(width: 1)), hintText: 'Password'),
+                decoration: const InputDecoration(
+                    border:
+                        OutlineInputBorder(borderSide: BorderSide(width: 1)),
+                    hintText: 'Password'),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const BuildingScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const BuildingScreen()),
                   );
                 },
-                child: const Text('Forgot Password', style: TextStyle(color: Colors.lightBlue, fontSize: 20)),
+                child: const Text('Forgot Password',
+                    style: TextStyle(color: Colors.lightBlue, fontSize: 20)),
               ),
               ElevatedButton(
                   // Within the `FirstRoute` widget
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+                      MaterialPageRoute(builder: (context) => WelcomeScreen(user: user)),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 100, vertical: 10),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20), // <-- Radius
                       ),
                       backgroundColor: Colors.lightBlue,
-                      textStyle: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                      textStyle: const TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.bold)),
                   child: const Text(
                     'Login',
                     style: TextStyle(color: Colors.white),
