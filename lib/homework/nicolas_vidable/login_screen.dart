@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:itr_course_app/homework/nicolas_vidable/home_screen.dart';
 
 class LoginScreenNico extends StatefulWidget {
   const LoginScreenNico({super.key});
@@ -9,6 +10,10 @@ class LoginScreenNico extends StatefulWidget {
 }
 
 class _LoginScreenNicoState extends State<LoginScreenNico> {
+  
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +43,7 @@ class _LoginScreenNicoState extends State<LoginScreenNico> {
                   margin: const EdgeInsets.only(bottom: 20),
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: TextFormField(
+                    controller: emailController,
                     decoration: const InputDecoration(
                       hintText: 'Email',
                       fillColor: Colors.white,
@@ -54,6 +60,8 @@ class _LoginScreenNicoState extends State<LoginScreenNico> {
                 Container(
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: TextFormField(
+                    controller: passwordController,
+                    obscureText: true,
                     decoration: const InputDecoration(
                       hintText: 'Password',
                       fillColor: Colors.white,
@@ -78,7 +86,16 @@ class _LoginScreenNicoState extends State<LoginScreenNico> {
                   width: 200,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(emailController.text);
+                      if(emailValid && passwordController.text.isNotEmpty) {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreenNico()));
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Email y/o password incorrectos!')),
+                        );
+                      }
+                    },
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 24, 40, 189)),
                         foregroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 62, 62, 63)),
