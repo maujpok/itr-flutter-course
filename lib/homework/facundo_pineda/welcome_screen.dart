@@ -10,6 +10,7 @@ class WelcomeScreen extends StatefulWidget {
   //SecondScreen({Key key, @required this.text}) : super(key: key);
 
   @override
+  // ignore: no_logic_in_create_state
   State<WelcomeScreen> createState() => _WelcomeScreenState(user);
 }
 

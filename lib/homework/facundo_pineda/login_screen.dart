@@ -55,27 +55,11 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
           Padding(
             padding: const EdgeInsets.only(right: 10.0, left: 10),
             child: Column(children: [
-              TextFormField(
-                onChanged: (text) {
-                  user.email = text;
-                },
-                decoration: const InputDecoration(
-                    border:
-                        OutlineInputBorder(borderSide: BorderSide(width: 1)),
-                    hintText: 'Email'),
-              ),
+              textInputInMyLoginScreen(user,'email', 'Email'),
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                onChanged: (text) {
-                  user.password = text;
-                },
-                decoration: const InputDecoration(
-                    border:
-                        OutlineInputBorder(borderSide: BorderSide(width: 1)),
-                    hintText: 'Password'),
-              ),
+              textInputInMyLoginScreen(user,'password', 'Password'),
               buildingScreen("Forgot Password"),
               ElevatedButton(
                   // Within the `FirstRoute` widget
@@ -150,7 +134,8 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
   bool _validatePassword(String value) {
     RegExp regex =
         //RegExp(r'^(?:[A-Za-z\d$@$!%*?&]){8,15}$'); //no funciona
-        RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}$');
+        RegExp(
+            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}$');
     if (value.isEmpty) {
       return false;
     } else {
@@ -168,6 +153,18 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
       },
       child: Text(s,
           style: const TextStyle(color: Colors.lightBlue, fontSize: 20)),
+    );
+  }
+
+  textInputInMyLoginScreen(UserFacu user, String selection, String s) {
+    TextFormField(
+      onChanged: (text) {
+        if (selection == 'email') user.email = text;
+        if (selection == 'password') user.password = text;
+      },
+      decoration:  InputDecoration(
+          border:  const OutlineInputBorder(borderSide: BorderSide(width: 1)),
+          hintText: s),
     );
   }
 }
