@@ -156,8 +156,8 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
     );
   }
 
-  textInputInMyLoginScreen(UserFacu user, String selection, String s) {
-    TextFormField(
+  TextFormField textInputInMyLoginScreen(UserFacu user, String selection, String s) {
+    return TextFormField(
       onChanged: (text) {
         if (selection == 'email') user.email = text;
         if (selection == 'password') user.password = text;
