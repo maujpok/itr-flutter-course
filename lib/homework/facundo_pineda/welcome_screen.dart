@@ -46,7 +46,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Home de ${user.name}'),
+          title: Text('Home de ${user.email}'),
           backgroundColor: Colors.lightBlue,
         ),
         body: Column(
@@ -122,10 +122,10 @@ class PhotoFace extends StatelessWidget {
           child: Column(
             children: [
               Image.asset('assets/facundo_pineda/home_face.jpg'),
-              const Image(
+              /*const Image(
                 image: AssetImage('assets/facundo_pineda/home_face.jpg'),
                 fit: BoxFit.fitHeight,
-              ),
+              ),*/
               //Image.network('https://avatars.githubusercontent.com/u/7298012?v=4')
             ],
           ),

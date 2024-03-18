@@ -1,6 +1,6 @@
 class UserFacu {
-  final String name;
-  final String password;
+   String email;
+   String password;
 
-  UserFacu({required this.name, required this.password});
+  UserFacu({required this.email, required this.password});
 }
