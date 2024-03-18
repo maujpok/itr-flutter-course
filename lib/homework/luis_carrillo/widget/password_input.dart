@@ -1,19 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:itr_course_app/homework/luis_carrillo/widget/input_text.dart';
 
-class PasswordInput extends StatelessWidget {
-  const PasswordInput({super.key});
+class PasswordInput extends StatefulWidget {
+  const PasswordInput({Key? key}) : super(key: key);
+
+  @override
+  PasswordInputState createState() => PasswordInputState();
+}
+
+class PasswordInputState extends State<PasswordInput> {
+  late String _passInput;
+
+  String? nonNullValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Este campo no puede estar vacío';
+    }
+    return null;
+  }
+
+  void handleTextChange(String value) {
+    print(value);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        hintText: 'Password',
-        contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: const BorderSide(color: Colors.grey),
-        ),
-      ),
-    );
+    return InputText(
+        label: "Password",
+        hint: "Password",
+        icon: const Icon(Icons.lock_outline),
+        keyboard: TextInputType.text,
+        obscure: true,
+        onChanged: handleTextChange,
+        validator: nonNullValidator,
+        enableInteractiveSelection: false);
   }
 }

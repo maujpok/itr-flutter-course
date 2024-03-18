@@ -8,36 +8,50 @@ import 'widget/password_input.dart';
 import 'widget/bottom_bar.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Column(
-              children: [
-                LogoImage(),
-                EmailInput(),
-                SizedBox(height: 15),
-                PasswordInput(),
-                ForgotPasswordButton(),
-                LoginButton(),
-              ],
+    void submitForm() {
+      final isValid = _formKey.currentState?.validate();
+      print("is login: $isValid");
+      // if (_formKey.currentState!.validate()) {
+      //   _formKey.currentState!.save();
+      // }
+    }
+
+    return Scaffold(
+      appBar: const CustomAppBar(),
+      body: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: Column(
+                children: [
+                  const LogoImage(),
+                  const EmailInput(),
+                  const SizedBox(height: 15),
+                  const PasswordInput(),
+                  const ForgotPasswordButton(),
+                  LoginButton(onPressed: submitForm),
+                ],
+              ),
             ),
-          ),
-          Flexible(
-            child: BottomBar(),
-          ),
-        ],
+            const Flexible(
+              child: BottomBar(),
+            ),
+          ],
+        ),
       ),
     );
   }

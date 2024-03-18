@@ -20,6 +20,7 @@ class BottomBar extends StatelessWidget {
                 style: const TextStyle(color: Colors.blue, decoration: TextDecoration.underline),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
+                  //TODO logica para onclick
                     print('se hizo tab en Create Account');
                   },
               ),
