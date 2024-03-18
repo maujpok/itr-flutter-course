@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itr_course_app/homework/luis_carrillo/widget/home_luis.dart';
 import 'widget/custom_app_bar.dart';
 import 'widget/email_input.dart';
 import 'widget/forgot_password_button.dart';
@@ -21,7 +22,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     void submitForm() {
       final isValid = _formKey.currentState?.validate();
-      print("is login: $isValid");
+      if ( isValid == true) {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeLuis()));
+      }
       // if (_formKey.currentState!.validate()) {
       //   _formKey.currentState!.save();
       // }
