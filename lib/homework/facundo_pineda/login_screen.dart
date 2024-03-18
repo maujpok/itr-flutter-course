@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:itr_course_app/homework/facundo_pineda/building_screen.dart';
 import 'package:itr_course_app/homework/facundo_pineda/welcome_screen.dart';
@@ -20,7 +18,9 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
   @override
   Widget build(BuildContext context) {
     final UserFacu user = UserFacu(email: "facu", password: "123");
-    List<Map<String, String>> errors = [];
+
+    ///Luego me di cuenta que podría ser directamente el Map
+    Map<String, String> errors = {};
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login Page by Facu Pineda'),
@@ -103,21 +103,34 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
                   // Within the `FirstRoute` widget
                   onPressed: () {
                     if (!_validatePassword(user.password)) {
-                      errors.add({"Password",user.password} as Map<String, String>);
+                      //errors.({"Password", user.password});
+                      errors.update("Password", (v) => user.password,
+                          ifAbsent: () => user.password);
                     }
-                    if (_validateEmail(user.email)) {
+                    if (!_validateEmail(user.email)) {
+                      //errors += ({"Email", user.email});
+                      errors.update("Email", (v) => user.email,
+                          ifAbsent: () => user.email);
+                    }
+
+                    if (errors.isEmpty) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => WelcomeScreen(user: user)),
                       );
                     } else {
+                      String outString = "";
+                      for (String error in errors.keys) {
+                        outString +=
+                            "Campo: $error - Valor Incorrecto: ${errors[error]}.\n";
+                      }
                       showDialog(
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            content:
-                                Text("El email '${user.email}' no es válido."),
+                            content: Text(
+                                "Los siguientes campos no son válidos:\n $outString."),
                           );
                         },
                       );
