@@ -17,7 +17,7 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
 
   @override
   Widget build(BuildContext context) {
-    final UserFacu user = UserFacu(email: "facu", password: "123");
+    final UserFacu user = UserFacu(email: "Desconocido", password: "ninguno");
 
     ///Luego me di cuenta que podría ser directamente el Map
     Map<String, String> errors = {};
@@ -30,19 +30,7 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
       bottomNavigationBar: BottomAppBar(
           color: Colors.white,
           height: 70,
-          child: Center(
-            child: TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const BuildingScreen()),
-                );
-              },
-              child: const Text('New User? Create Account',
-                  style: TextStyle(color: Colors.lightBlue, fontSize: 20)),
-            ),
-          )),
+          child: Center(child: buildingScreen("New User? Create Account"))),
       body: Column(
         children: [
           const SizedBox(
@@ -88,17 +76,7 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
                         OutlineInputBorder(borderSide: BorderSide(width: 1)),
                     hintText: 'Password'),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const BuildingScreen()),
-                  );
-                },
-                child: const Text('Forgot Password',
-                    style: TextStyle(color: Colors.lightBlue, fontSize: 20)),
-              ),
+              buildingScreen("Forgot Password"),
               ElevatedButton(
                   // Within the `FirstRoute` widget
                   onPressed: () {
@@ -166,16 +144,30 @@ class _LoginScreenFacuState extends State<LoginScreenFacu> {
         r'x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])';
     final regex = RegExp(pattern);
 
-    return !(value!.isNotEmpty && !regex.hasMatch(value));
+    return value!.isNotEmpty && regex.hasMatch(value);
   }
 
   bool _validatePassword(String value) {
     RegExp regex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+        //RegExp(r'^(?:[A-Za-z\d$@$!%*?&]){8,15}$'); //no funciona
+        RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}$');
     if (value.isEmpty) {
       return false;
     } else {
       return regex.hasMatch(value);
     }
+  }
+
+  buildingScreen(String s) {
+    return TextButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const BuildingScreen()),
+        );
+      },
+      child: Text(s,
+          style: const TextStyle(color: Colors.lightBlue, fontSize: 20)),
+    );
   }
 }

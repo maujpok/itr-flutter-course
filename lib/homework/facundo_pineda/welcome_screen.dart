@@ -103,7 +103,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   }
 }
 
-
 ///Static Widget with my face.
 ///Testing comments before a class.
 class PhotoFace extends StatelessWidget {
