@@ -60,6 +60,7 @@ class GridViewLoginButtons extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (context, index) => NavigationButton(
           btnTitle: items[index].name,
+          loginWidget: items[index].loginWidget,
         ),
       ),
     );
