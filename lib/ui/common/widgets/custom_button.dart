@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itr_course_app/ui/default_screen.dart';
+import 'package:itr_course_app/ui/features/default/default_screen.dart';
 
 class NavigationButton extends StatelessWidget {
   const NavigationButton({
