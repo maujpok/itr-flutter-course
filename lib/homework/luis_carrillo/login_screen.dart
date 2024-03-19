@@ -17,17 +17,28 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String? email;
+  String? password;
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController passwordController = TextEditingController();
+
     void submitForm() {
       final isValid = _formKey.currentState?.validate();
+      if (_formKey.currentState!.validate()) {
+        _formKey.currentState!.save();
+      }
       if ( isValid == true) {
         Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeLuis()));
       }
-      // if (_formKey.currentState!.validate()) {
-      //   _formKey.currentState!.save();
-      // }
+    }
+
+    void savePassword(String? value) {
+      if (value != null) {
+        password = value;
+      }
+      print("Password: $password");
     }
 
     return Scaffold(
@@ -44,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const LogoImage(),
                   const EmailInput(),
                   const SizedBox(height: 15),
-                  const PasswordInput(),
+                  PasswordInput(controller: passwordController, onSaved: savePassword),
                   const ForgotPasswordButton(),
                   LoginButton(onPressed: submitForm),
                 ],

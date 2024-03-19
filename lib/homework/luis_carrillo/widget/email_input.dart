@@ -9,7 +9,6 @@ class EmailInput extends StatefulWidget {
 }
 
 class EmailInputState extends State<EmailInput> {
-  late String _emailInput;
 
   String? emailValidator(String? value) {
     if (value == null || value.isEmpty) {
@@ -36,6 +35,6 @@ class EmailInputState extends State<EmailInput> {
         obscure: false,
         onChanged: handleTextChange,
         validator: emailValidator,
-        enableInteractiveSelection: true);
+        enableInteractiveSelection: true, onSaved: (String data) {  },);
   }
 }
