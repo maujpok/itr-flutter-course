@@ -6,35 +6,6 @@ import 'package:itr_course_app/homework/fernando_villegas/login_screen.dart';
 import 'package:itr_course_app/homework/luis_carrillo/login_screen.dart';
 import 'package:itr_course_app/homework/nicolas_vidable/login_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('ITR Flutter'),
-          backgroundColor: Colors.blueAccent,
-        ),
-        body: ListView.separated(
-          separatorBuilder: (context, index) => const SizedBox(height: 20),
-          itemCount: items.length,
-          shrinkWrap: true,
-          itemBuilder: (context, index) => ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => items[index].loginWidget,
-                ),
-              );
-            },
-            child: Text(items[index].name),
-          ),
-        ));
-  }
-}
-
 final items = <StudentLogins>[
   StudentLogins(name: 'Luis', loginWidget: const LoginScreenLuis()),
   StudentLogins(name: 'Andres', loginWidget: const LoginScreenAndres()),
