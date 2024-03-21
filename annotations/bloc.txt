@@ -10,6 +10,12 @@ UI
 API
 
 
+1- declarar el endpoint en el resource
+2- declarar el metodo en el repo
+3- declarar evento, parametro en el state, handler, BLOC
+4- conectamos desde la UI
+
+
 
 CONSUMO DE LOS ESTADOS
 BLOC LISTENER
@@ -48,4 +54,4 @@ EVENT                   STATE
 ----------
 11
 111
-1111 
+1111
