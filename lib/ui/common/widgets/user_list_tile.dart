@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itr_course_app/domain/models/user_model.dart';
-import 'package:itr_course_app/ui/features/home/user_details_screen.dart';
+import 'package:itr_course_app/homework/facundo_pineda/user_details_screen.dart';
+
 
 class UserListTile extends StatelessWidget {
   const UserListTile({
@@ -31,7 +32,7 @@ class UserListTile extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => UserDetailsScreen(userId: curr.id!),
+            builder: (context) => UserDetailsFPScreen(userId: curr.id!),
           ),
         );
       },
