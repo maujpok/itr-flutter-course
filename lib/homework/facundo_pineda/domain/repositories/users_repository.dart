@@ -1,9 +1,9 @@
-import 'package:itr_course_app/domain/models/user_model.dart';
+import 'package:itr_course_app/homework/facundo_pineda/domain/models/user_model.dart';
 
 abstract class UsersRepository {
-  Future<List<UserModel>?> getUsers();
+  Future<List<UserModelTypicode>?> getUsers();
 
-  Future<UserModel?> getUserById({
+  Future<UserModelTypicode?> getUserById({
     required int id,
     String? other,
   });

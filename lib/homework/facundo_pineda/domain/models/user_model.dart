@@ -4,9 +4,9 @@
 
 import 'dart:convert';
 
-UserModelTypicode userModelTypicodeFromJson(String str) => UserModelTypicode.fromJson(json.decode(str));
+List<UserModelTypicode> userModelTypicodeFromJson(List<dynamic> str) => List<UserModelTypicode>.from((str).map((x) => UserModelTypicode.fromJson(x)));
 
-String userModelTypicodeToJson(UserModelTypicode data) => json.encode(data.toJson());
+String userModelTypicodeToJson(List<UserModelTypicode> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class UserModelTypicode {
     final int? id;

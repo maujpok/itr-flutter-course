@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:itr_course_app/main.dart';
-import 'package:itr_course_app/ui/features/home/bloc/home_bloc.dart';
-import 'package:itr_course_app/ui/features/home/home_screen.dart';
+//Original
+// import 'package:itr_course_app/main.dart';
+// import 'package:itr_course_app/ui/features/home/bloc/home_bloc.dart';
+// import 'package:itr_course_app/ui/features/home/home_screen.dart';
 
+//Facundo Pineda
+
+import 'package:itr_course_app/homework/facundo_pineda/main.dart';
+import 'package:itr_course_app/homework/facundo_pineda/ui/bloc/home_bloc.dart';
+import 'package:itr_course_app/homework/facundo_pineda/ui/home_screen.dart';
 class App extends StatelessWidget {
   const App({super.key});
 

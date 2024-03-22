@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itr_course_app/domain/models/user_model.dart';
+import 'package:itr_course_app/homework/facundo_pineda/domain/models/user_model.dart';
 import 'package:itr_course_app/homework/facundo_pineda/ui/user_details_screen.dart';
 
 
@@ -9,7 +9,7 @@ class UserListTile extends StatelessWidget {
     required this.curr,
   });
 
-  final UserModel curr;
+  final UserModelTypicode curr;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class UserListTile extends StatelessWidget {
       textColor: Colors.white,
       iconColor: Colors.white,
       title: Text(
-        '${curr.firstname!} ${curr.lastname!}',
+        '${curr.name!} ${curr.name!}',
         style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,

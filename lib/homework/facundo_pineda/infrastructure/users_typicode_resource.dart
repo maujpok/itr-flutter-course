@@ -1,16 +1,16 @@
 // ignore_for_file: avoid_print
 
 import 'package:dio/dio.dart';
-import 'package:itr_course_app/domain/models/user_model.dart';
+import 'package:itr_course_app/homework/facundo_pineda/domain/models/user_model.dart';
 
 class UserResource {
   final dio = Dio();
 
-  Future<List<UserModel>?> getUsers() async {
+  Future<List<UserModelTypicode>?> getUsers() async {
     const url = 'https://jsonplaceholder.typicode.org/users';
     try {
       final response = await dio.get(url);
-      final usersList = userModelListFromJson(response.data);
+      final usersList = userModelTypicodeFromJson(response.data);
       print(usersList.first.toJson());
       return usersList;
     } catch (e) {
@@ -19,7 +19,7 @@ class UserResource {
     }
   }
 
-  Future<UserModel?> getUserById({
+  Future<UserModelTypicode?> getUserById({
     required int id,
     String? other,
   }) async {
