@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:itr_course_app/homework/facundo_pineda/building_screen.dart';
-import 'package:itr_course_app/homework/facundo_pineda/welcome_screen.dart';
+import 'package:itr_course_app/homework/facundo_pineda/ui/building_screen.dart';
+import 'package:itr_course_app/homework/facundo_pineda/ui/welcome_screen.dart';
 
 class LoginScreenFacu extends StatefulWidget {
   const LoginScreenFacu({super.key});
