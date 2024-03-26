@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:itr_course_app/main.dart';
 import 'package:itr_course_app/ui/features/home/bloc/home_bloc.dart';
 import 'package:itr_course_app/ui/features/home/home_screen.dart';
 
@@ -11,7 +12,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => HomeBloc()),
+        BlocProvider(create: (context) => sl<HomeBloc>()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
