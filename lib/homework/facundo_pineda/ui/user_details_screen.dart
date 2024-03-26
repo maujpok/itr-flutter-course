@@ -95,13 +95,14 @@ class _UserDetailsFPScreenState extends State<UserDetailsFPScreen> {
                   DataRow(
                     cells: <DataCell>[
                       const DataCell(Text('Company Data')),
-                        DataCell(SingleChildScrollView(
-                            child: 
-                              Text('Name:${state.selectedUser?.company?.name}\n'
+                      DataCell(
+                        SingleChildScrollView(
+                          child: Text(
+                              'Name:${state.selectedUser?.company?.name}\n'
                               'Bs:${state.selectedUser?.company?.bs}\n'
                               'Phrase:${state.selectedUser?.company?.catchPhrase}'),
-                          ),
                         ),
+                      ),
                     ],
                   ),
                   DataRow(
