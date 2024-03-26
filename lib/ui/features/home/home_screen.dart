@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:itr_course_app/ui/common/widgets/user_list_tile.dart';
 import 'package:itr_course_app/ui/features/home/bloc/home_bloc.dart';
+import 'package:itr_course_app/ui/features/todos/bloc/todos_bloc.dart';
+import 'package:itr_course_app/ui/features/todos/views/todo_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,6 +13,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  get child => null;
+
   @override
   void initState() {
     context.read<HomeBloc>().add(FetchAllUsersEvent());
@@ -33,16 +37,35 @@ class _HomeScreenState extends State<HomeScreen> {
             }
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: ListView.separated(
-                  shrinkWrap: true,
-                  separatorBuilder: (context, index) => const SizedBox(
-                        height: 24,
-                      ),
-                  itemCount: state.users!.length,
-                  itemBuilder: (context, index) {
-                    final curr = state.users![index];
-                    return UserListTile(curr: curr);
-                  }),
+              child: Column(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<TodosBloc>().add(GetToDos());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TodosScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text('Vamos a ToDos'),
+                  ),
+                  const SizedBox(height: 24),
+                  Expanded(
+                    child: ListView.separated(
+                        shrinkWrap: true,
+                        separatorBuilder: (context, index) => const SizedBox(
+                              height: 24,
+                            ),
+                        itemCount: state.users!.length,
+                        itemBuilder: (context, index) {
+                          final curr = state.users![index];
+                          return UserListTile(curr: curr);
+                        }),
+                  ),
+                ],
+              ),
             );
           },
         )

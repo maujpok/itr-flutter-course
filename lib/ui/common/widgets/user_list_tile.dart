@@ -20,7 +20,7 @@ class UserListTile extends StatelessWidget {
       textColor: Colors.white,
       iconColor: Colors.white,
       title: Text(
-        '${curr.firstname!} ${curr.lastname!}',
+        curr.name!,
         style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
