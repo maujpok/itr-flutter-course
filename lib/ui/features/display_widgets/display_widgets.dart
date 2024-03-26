@@ -23,13 +23,13 @@ class _DisplayWidgetScreensState extends State<DisplayWidgetScreens> {
         body: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
             BlocBuilder<HomeBloc, HomeState>(
               builder: (context, state) {
                 return Text(state.pageName ?? 'no voy a dejar que seas nulo');
               },
             ),
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
             const ListButtonsHorizontal(),
             const SizedBox(height: 20),
             _buildRowWithOverflow(),

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:itr_course_app/app/app.dart';
-import 'package:itr_course_app/domain/repositories/users/users_repository.dart';
-import 'package:itr_course_app/domain/repositories/users/users_repository_impl.dart';
-import 'package:itr_course_app/infraestructure/resources/users_resource.dart';
-import 'package:itr_course_app/ui/features/home/bloc/home_bloc.dart';
+// import 'package:itr_course_app/app/app.dart';
+// import 'package:itr_course_app/domain/repositories/users/users_repository.dart';
+// import 'package:itr_course_app/domain/repositories/users/users_repository_impl.dart';
+// import 'package:itr_course_app/infraestructure/resources/users_resource.dart';
+// import 'package:itr_course_app/ui/features/home/bloc/home_bloc.dart';
+
+import 'package:itr_course_app/homework/facundo_pineda/app/app.dart';
+import 'package:itr_course_app/homework/facundo_pineda/domain/repositories/users_repository.dart';
+import 'package:itr_course_app/homework/facundo_pineda/domain/repositories/users_repository_impl.dart';
+import 'package:itr_course_app/homework/facundo_pineda/infrastructure/users_typicode_resource.dart';
+import 'package:itr_course_app/homework/facundo_pineda/ui/bloc/home_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -20,5 +26,5 @@ void main() {
       () => HomeBloc(usersRepository: sl()),
     );
 
-  runApp(const App());
+  runApp(const App()); 
 }
