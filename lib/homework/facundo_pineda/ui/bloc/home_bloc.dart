@@ -14,6 +14,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>((event, emit) {});
     on<SetHomeIndexEvent>(_onSetHomeIndexEvent);
     on<FetchAllUsersEvent>(_onFetchAllUsersEvent);
+    on<FetchSingleUsersEvent>(_onFetchSingleUsersEvent);
   }
 
   FutureOr<void> _onFetchAllUsersEvent(event, emit) async {
@@ -21,6 +22,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     if (response != null) {
       emit(state.copyWith(
         users: response,
+      ));
+    }
+  }
+
+    FutureOr<void> _onFetchSingleUsersEvent(event, emit) async {
+    final response = await usersRepository.getUserById(id:event.userId);
+    if (response != null) {
+      emit(state.copyWith(
+        selectedUser: response,
       ));
     }
   }

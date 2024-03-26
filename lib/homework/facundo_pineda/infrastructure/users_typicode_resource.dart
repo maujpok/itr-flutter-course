@@ -24,5 +24,14 @@ class UserResource {
     String? other,
   }) async {
     final url = 'https://jsonplaceholder.typicode.com/users/$id';
+        try {
+      final response = await dio.get(url);
+      final users = UserModelTypicode.fromJson(response.data);
+      print(users.toJson());
+      return users;
+    } catch (e) {
+      print(e);
+      return null;
+    }
   }
 }
