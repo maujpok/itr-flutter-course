@@ -6,6 +6,8 @@ import 'dart:convert';
 
 List<UserModel> userModelListFromJson(List<dynamic> str) => List<UserModel>.from((str).map((x) => UserModel.fromJson(x)));
 
+UserModel userModelFromJson(dynamic str) => UserModel.fromJson(str);
+
 String userModelToJson(List<UserModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class UserModel {
@@ -13,10 +15,10 @@ class UserModel {
   final String? firstname;
   final String? lastname;
   final String? email;
-  final DateTime? birthDate;
+  //final DateTime? birthDate;
   final Login? login;
-  final Address? address;
-  final Phone? phone;
+  //final Address? address;
+  //final Phone? phone;
   final String? website;
   final Company? company;
 
@@ -25,37 +27,37 @@ class UserModel {
     this.firstname,
     this.lastname,
     this.email,
-    this.birthDate,
+    //this.birthDate,
     this.login,
-    this.address,
-    this.phone,
+    //this.address,
+    //this.phone,
     this.website,
     this.company,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
         id: json["id"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
+        firstname: json["name"],
+        lastname: json["username"],
         email: json["email"],
-        birthDate: json["birthDate"] == null ? null : DateTime.parse(json["birthDate"]),
+        //birthDate: json["birthDate"] == null ? null : DateTime.parse(json["birthDate"]),
         login: json["login"] == null ? null : Login.fromJson(json["login"]),
-        address: json["address"] == null ? null : Address.fromJson(json["address"]),
-        phone: phoneValues.map[json["phone"]]!,
+        //address: json["address"] == null ? null : Address.fromJson(json["address"]),
+        //phone: phoneValues.map[json["phone"]]!,
         website: json["website"],
         company: json["company"] == null ? null : Company.fromJson(json["company"]),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "firstname": firstname,
-        "lastname": lastname,
+        "name": firstname,
+        "username": lastname,
         "email": email,
-        "birthDate":
-            "${birthDate!.year.toString().padLeft(4, '0')}-${birthDate!.month.toString().padLeft(2, '0')}-${birthDate!.day.toString().padLeft(2, '0')}",
+        //"birthDate":
+        //    "${birthDate!.year.toString().padLeft(4, '0')}-${birthDate!.month.toString().padLeft(2, '0')}-${birthDate!.day.toString().padLeft(2, '0')}",
         "login": login?.toJson(),
-        "address": address?.toJson(),
-        "phone": phoneValues.reverse[phone],
+        //"address": address?.toJson(),
+        //"phone": phoneValues.reverse[phone],
         "website": website,
         "company": company?.toJson(),
       };

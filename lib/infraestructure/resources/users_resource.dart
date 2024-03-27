@@ -7,7 +7,7 @@ class UserResource {
   final dio = Dio();
 
   Future<List<UserModel>?> getUsers() async {
-    const url = 'https://jsonplaceholder.org/users';
+    const url = 'https://jsonplaceholder.typicode.com/users';
     try {
       final response = await dio.get(url);
       final usersList = userModelListFromJson(response.data);
@@ -23,6 +23,14 @@ class UserResource {
     required int id,
     String? other,
   }) async {
-    final url = 'https://jsonplaceholder.org/users/$id';
+    final url = 'https://jsonplaceholder.typicode.com/users/$id';
+    try {
+      final response = await dio.get(url);
+      final user = userModelFromJson(response.data);
+      return user;
+    } catch(e) {
+      print(e);
+      return null;
+    }
   }
 }

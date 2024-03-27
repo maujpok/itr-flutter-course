@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:itr_course_app/domain/models/user_model.dart';
 import 'package:itr_course_app/domain/repositories/users/users_repository.dart';
 
@@ -13,6 +14,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>((event, emit) {});
     on<SetHomeIndexEvent>(_onSetHomeIndexEvent);
     on<FetchAllUsersEvent>(_onFetchAllUsersEvent);
+    on<FetchUserByIDEvent>(_onFetchUserByIDEvent);
   }
 
   FutureOr<void> _onFetchAllUsersEvent(event, emit) async {
@@ -20,6 +22,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     if (response != null) {
       emit(state.copyWith(
         users: response,
+      ));
+    }
+  }
+
+  FutureOr<void> _onFetchUserByIDEvent(FetchUserByIDEvent event, emit) async {
+    final response = await usersRepository.getUserById(id: event.id);
+    if (response != null) {
+      emit(state.copyWith(
+        selectedUser: response,
       ));
     }
   }

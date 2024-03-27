@@ -8,3 +8,9 @@ class SetHomeIndexEvent extends HomeEvent {
 }
 
 class FetchAllUsersEvent extends HomeEvent {}
+
+
+class FetchUserByIDEvent extends HomeEvent {
+  FetchUserByIDEvent({required this.id});
+  final int id;
+}

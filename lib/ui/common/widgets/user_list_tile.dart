@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:itr_course_app/domain/models/user_model.dart';
+import 'package:itr_course_app/ui/features/home/bloc/home_bloc.dart';
 import 'package:itr_course_app/ui/features/home/user_details_screen.dart';
 
 class UserListTile extends StatelessWidget {
